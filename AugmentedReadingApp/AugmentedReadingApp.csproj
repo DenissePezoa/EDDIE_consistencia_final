@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.WinForms.75.1.143\build\CefSharp.WinForms.props" Condition="Exists('..\packages\CefSharp.WinForms.75.1.143\build\CefSharp.WinForms.props')" />
+  <Import Project="..\packages\CefSharp.Common.75.1.143\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.75.1.143\build\CefSharp.Common.props')" />
+  <Import Project="..\packages\cef.redist.x86.75.1.14\build\cef.redist.x86.props" Condition="Exists('..\packages\cef.redist.x86.75.1.14\build\cef.redist.x86.props')" />
+  <Import Project="..\packages\cef.redist.x64.75.1.14\build\cef.redist.x64.props" Condition="Exists('..\packages\cef.redist.x64.75.1.14\build\cef.redist.x64.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6FB7AC4-52B4-4EEA-9353-58065B161459}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AugmentedReadingApp</RootNamespace>
+    <AssemblyName>AugmentedReadingApp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CefSharp">
+      <HintPath>..\packages\CefSharp.Common.75.1.143\CefSharp\x86\CefSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Core">
+      <HintPath>..\packages\CefSharp.Common.75.1.143\CefSharp\x86\CefSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.WinForms">
+      <HintPath>..\packages\CefSharp.WinForms.75.1.143\CefSharp\x86\CefSharp.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI, Version=4.1.0.3420, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>..\packages\EMGU.CV.4.1.0.3420\lib\net35\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World, Version=4.1.0.3420, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>..\packages\EMGU.CV.4.1.0.3420\lib\net35\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="InterfacesModuloConsistencia, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\InterfacesModuloConsistencia\bin\Debug\netstandard2.0\InterfacesModuloConsistencia.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="LeapCSharp.NET4.5, Version=3.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\LeapDeveloperKit_3.2.1_win\LeapDeveloperKit_3.2.1+45911_win\LeapSDK\lib\LeapCSharp.NET4.5.dll</HintPath>
+    </Reference>
+    <Reference Include="ModuloVisualizacionDatos">
+      <HintPath>..\ModuloVisualizacionDatos\bin\Debug\ModuloVisualizacionDatos.dll</HintPath>
+    </Reference>
+    <Reference Include="ModuloRastreoOcular">
+      <HintPath>..\ModuloRastreoOcular\bin\Debug\ModuloRastreoOcular.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.AccessControl, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.6.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.6.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tesseract, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tesseract.3.3.0\lib\net45\Tesseract.dll</HintPath>
+    </Reference>
+    <Reference Include="ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="busquedasRecientes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="busquedasRecientes.Designer.cs">
+      <DependentUpon>busquedasRecientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EyeTrackingConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EyeTrackingConfiguration.Designer.cs">
+      <DependentUpon>EyeTrackingConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InteractionCoordinator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InteractionCoordinator.Designer.cs">
+      <DependentUpon>InteractionCoordinator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReadingSession.cs" />
+    <Compile Include="ProjectionScreenActivity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectionScreenActivity.designer.cs">
+      <DependentUpon>ProjectionScreenActivity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeleccionApis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionApis.Designer.cs">
+      <DependentUpon>SeleccionApis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionInteraccionPorVoz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionInteraccionPorVoz.Designer.cs">
+      <DependentUpon>SeleccionInteraccionPorVoz.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="busquedasRecientes.resx">
+      <DependentUpon>busquedasRecientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EyeTrackingConfiguration.resx">
+      <DependentUpon>EyeTrackingConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InteractionCoordinator.resx">
+      <DependentUpon>InteractionCoordinator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectionScreenActivity.resx">
+      <DependentUpon>ProjectionScreenActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SeleccionApis.resx">
+      <DependentUpon>SeleccionApis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionInteraccionPorVoz.resx">
+      <DependentUpon>SeleccionInteraccionPorVoz.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="License-LGPL.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InterfacesModuloWeb\InterfacesModuloWeb.csproj">
+      <Project>{5ac01591-9f18-42a8-aec8-2d4d88b5a2b6}</Project>
+      <Name>InterfacesModuloWeb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModuloBusquedaWeb\ModuloBusquedaWeb.csproj">
+      <Project>{ac54acf5-6287-4152-a9dd-034fd88965d2}</Project>
+      <Name>ModuloBusquedaWeb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModuloConsistenciaDatos\ModuloConsistenciaDatos.csproj">
+      <Project>{21ec1171-4d2b-497b-b369-50ada53c2711}</Project>
+      <Name>ModuloConsistenciaDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModuloProcesamientoImagenes\ModuloProcesamientoImagenes.csproj">
+      <Project>{85922b35-4947-4ce4-aa4d-204fae05545c}</Project>
+      <Name>ModuloProcesamientoImagenes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModuloReconocimientoGestual\ModuloReconocimientoGestual.csproj">
+      <Project>{c06ee3f2-7a0c-452d-ab74-c7b50026f370}</Project>
+      <Name>ModuloReconocimientoGestual</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Tesseract.3.3.0\build\Tesseract.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Tesseract.3.3.0\build\Tesseract.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x64.75.1.14\build\cef.redist.x64.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.75.1.14\build\cef.redist.x64.props'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.75.1.14\build\cef.redist.x86.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.75.1.14\build\cef.redist.x86.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.75.1.143\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.75.1.143\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.75.1.143\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.75.1.143\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.75.1.143\build\CefSharp.WinForms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.75.1.143\build\CefSharp.WinForms.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.75.1.143\build\CefSharp.WinForms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.75.1.143\build\CefSharp.WinForms.targets'))" />
+    <Error Condition="!Exists('..\packages\EMGU.CV.4.1.0.3420\build\EMGU.CV.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EMGU.CV.4.1.0.3420\build\EMGU.CV.targets'))" />
+  </Target>
+  <Import Project="..\packages\Tesseract.3.3.0\build\Tesseract.targets" Condition="Exists('..\packages\Tesseract.3.3.0\build\Tesseract.targets')" />
+  <Import Project="..\packages\CefSharp.Common.75.1.143\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.75.1.143\build\CefSharp.Common.targets')" />
+  <Import Project="..\packages\CefSharp.WinForms.75.1.143\build\CefSharp.WinForms.targets" Condition="Exists('..\packages\CefSharp.WinForms.75.1.143\build\CefSharp.WinForms.targets')" />
+  <Import Project="..\packages\EMGU.CV.4.1.0.3420\build\EMGU.CV.targets" Condition="Exists('..\packages\EMGU.CV.4.1.0.3420\build\EMGU.CV.targets')" />
+</Project>

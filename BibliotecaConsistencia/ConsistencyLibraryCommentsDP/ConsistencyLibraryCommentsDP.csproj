@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Emgu.CV.UI">
+      <HintPath>..\..\AugmentedReadingApp\bin\Debug\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World">
+      <HintPath>..\..\AugmentedReadingApp\bin\Debug\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="InterfacesModuloConsistencia">
+      <HintPath>..\..\InterfacesModuloConsistencia\bin\Debug\netstandard2.0\InterfacesModuloConsistencia.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\AugmentedReadingApp\bin\Debug\itextsharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

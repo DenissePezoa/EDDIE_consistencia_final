@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Emgu.CV.UI">
+      <HintPath>..\..\AugmentedReadingApp\bin\x86\Debug\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World">
+      <HintPath>..\..\AugmentedReadingApp\bin\Debug\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="InterfacesModuloConsistencia">
+      <HintPath>..\..\AugmentedReadingApp\bin\x86\Debug\InterfacesModuloConsistencia.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\AugmentedReadingApp\bin\Debug\itextsharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
